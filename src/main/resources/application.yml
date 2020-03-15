@@ -1,0 +1,32 @@
+server:
+  servlet:
+    context-path: /friendbook
+  port: 8888
+
+spring:
+  datasource:
+    hikari:
+      minimumIdle:10
+      maximumPoolSize:20
+      idleTimeout:30000
+      poolName:FriendBookCP
+      maxLifetime:2000000
+      connectionTimeout:30000
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/friendbook
+    username: postgres
+    password: 
+  jpa:
+    database: POSTGRESQL
+    properties.hibernate.temp.use_jdbc_metadata_defaults: false
+    hibernate:
+      ddl-auto: update
+
+spring.jackson.date-format: yyyy-MM-dd
+spring.jackson.default-property-inclusion: non_null
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /
